@@ -4,4 +4,4 @@ commonLabels:
   environment: production
 
 resources:
-  - ../
+  - ../../base
