@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: switcher-api
+      app: switcher-api
   template:
     metadata:
       labels:
-        name: switcher-api
+        app: switcher-api
     spec:
       affinity:
         nodeAffinity:
