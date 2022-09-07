@@ -12,15 +12,6 @@ spec:
       labels:
         app: switcher-api
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                - worker-0
       dnsPolicy: Default
       containers:
         - name: switcher-api
