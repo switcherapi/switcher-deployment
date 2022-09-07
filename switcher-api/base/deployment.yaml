@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: switcher-api
+        name: switcher-api
     spec:
       affinity:
         nodeAffinity:
