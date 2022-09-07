@@ -1,0 +1,169 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: switcher-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: switcher-api
+  template:
+    metadata:
+      labels:
+        app: switcher-api
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker-0
+      dnsPolicy: Default
+      containers:
+        - name: switcher-api
+          image: trackerforce/switcher-api:latest
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          resources: 
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          readinessProbe:
+            httpGet:
+              path: /check
+              port: 3000
+          env:
+          - name: PORT
+            value: "3000"
+
+          # Global settings
+          - name: SWITCHER_API_LOGGER
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SWITCHER_API_LOGGER
+          - name: HISTORY_ACTIVATED
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: HISTORY_ACTIVATED
+          - name: METRICS_ACTIVATED
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: METRICS_ACTIVATED
+          - name: METRICS_MAX_PAGE
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: METRICS_MAX_PAGE
+          - name: MAX_STRATEGY_OPERATION
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: MAX_STRATEGY_OPERATION
+          - name: GOOGLE_SKIP_AUTH
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: GOOGLE_SKIP_AUTH
+          - name: JWT_ADMIN_TOKEN_RENEW_INTERVAL
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: JWT_ADMIN_TOKEN_RENEW_INTERVAL
+          - name: JWT_CLIENT_TOKEN_EXP_TIME
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: JWT_CLIENT_TOKEN_EXP_TIME
+
+          # SendGrid settings
+          - name: SENDGRID_CONFIRMATION_TEMPLATE
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SENDGRID_CONFIRMATION_TEMPLATE
+          - name: SENDGRID_RECOVERY_TEMPLATE
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SENDGRID_RECOVERY_TEMPLATE
+          - name: SENDGRID_MAIL_FROM
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SENDGRID_MAIL_FROM
+
+          # Auth Integration 
+          - name: BITBUCKET_OAUTH_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: BITBUCKET_OAUTH_CLIENT_ID
+          - name: GIT_OAUTH_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: GIT_OAUTH_CLIENT_ID
+
+          # Secrets
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: switcher-api
+                key: JWT_SECRET
+          - name: RESOURCE_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: switcher-api
+                key: RESOURCE_SECRET
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                name: switcher-api
+                key: MONGODB_URI
+          - name: SWITCHER_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: switcher-api
+                key: SWITCHER_API_KEY
+          - name: GIT_OAUTH_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: switcher-api
+                key: GIT_OAUTH_SECRET
+          - name: SENDGRID_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: switcher-api
+                key: SENDGRID_API_KEY
+
+          # Switcher API Client
+          - name: SWITCHER_API_ENABLE
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SWITCHER_API_ENABLE
+          - name: SWITCHER_API_URL
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SWITCHER_API_URL
+          - name: SWITCHER_API_DOMAIN
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SWITCHER_API_DOMAIN
+          - name: SWITCHER_API_ENVIRONMENT
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-api
+                key: SWITCHER_API_ENVIRONMENT
