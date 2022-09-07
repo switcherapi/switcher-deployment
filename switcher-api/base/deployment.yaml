@@ -6,12 +6,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: switcher-api
+      name: switcher-api
   template:
     metadata:
       labels:
         app: switcher-api
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker-0
       dnsPolicy: Default
       containers:
         - name: switcher-api
