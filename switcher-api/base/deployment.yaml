@@ -25,7 +25,6 @@ spec:
       containers:
         - name: switcher-api
           image: trackerforce/switcher-api:latest
-          imagePullPolicy: Always
           ports:
             - containerPort: 3000
               protocol: TCP
