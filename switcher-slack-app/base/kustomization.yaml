@@ -6,4 +6,4 @@ resources:
 
 images:
 - name: trackerforce/switcher-slack-app:latest
-  digest: sha256:848465303cee91c5572d7b0c6ca64c649344380cc7e5241548c28933e84736ec
+  digest: sha256:b0339ae3ba040f9fe6fa3d9aaeade8dcc41dd9e919193ce6136549f788c7d48b
