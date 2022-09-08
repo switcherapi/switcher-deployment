@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- deployment.yaml
+
+images:
+- name: trackerforce/switcher-slack-app:latest
+  digest: sha256:848465303cee91c5572d7b0c6ca64c649344380cc7e5241548c28933e84736ec

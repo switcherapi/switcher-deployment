@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: switcher-slack-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: switcher-slack-app
+  template:
+    metadata:
+      labels:
+        app: switcher-slack-app
+    spec:
+      dnsPolicy: Default
+      containers:
+        - name: switcher-slack-app
+          image: trackerforce/switcher-slack-app:latest
+          command: ["gunicorn", "--bind", "0.0.0.0:5000", "--chdir", "src", "app:flask_app"]
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+          resources: 
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          env:
+          - name: SLACK_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-slack-app
+                key: SLACK_CLIENT_ID
+          - name: SWITCHER_URL
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-slack-app
+                key: SWITCHER_URL
+          - name: SWITCHER_API_URL
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-slack-app
+                key: SWITCHER_API_URL
+
+          # Secrets
+          - name: SLACK_SIGNING_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: switcher-slack-app
+                key: SLACK_SIGNING_SECRET
+          - name: SLACK_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: switcher-slack-app
+                key: SLACK_CLIENT_SECRET
+          - name: SWITCHER_JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: switcher-slack-app
+                key: SWITCHER_JWT_SECRET
