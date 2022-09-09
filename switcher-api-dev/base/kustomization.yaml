@@ -5,5 +5,6 @@ resources:
 - deployment.yaml
 
 images:
-- name: trackerforce/switcher-api-dev:latest
-  digest: sha256
+- digest: sha256:e4bec52247af6fb2ae40bb3dd33b7e15fe43918f766ef53d5b5ab4932f31d2b5
+  name: trackerforce/switcher-api-dev:latest
+  newName: trackerforce/switcher-api-dev
