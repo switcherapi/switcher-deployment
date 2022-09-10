@@ -14,3 +14,6 @@ images:
 - name: trackerforce/switcher-api-dev:latest
   newName: trackerforce/switcher-api-dev
   newTag: latest
+- digest: sha256:59fb5a49298bea21b49ea6effe8dbc20eff41c309d6e4fa4109f813cc7437249
+  name: trackerforce/switcher-api:latest
+  newName: trackerforce/switcher-api
