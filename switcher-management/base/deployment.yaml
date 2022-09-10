@@ -28,6 +28,11 @@ spec:
               memory: "256Mi"
               cpu: "500m"
           env:
+          - name: RELEASE_TIME
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-management-generated
+                key: RELEASE_TIME
           - name: SWITCHERAPI_URL
             valueFrom:
               configMapKeyRef:

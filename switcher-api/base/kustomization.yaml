@@ -4,6 +4,12 @@ kind: Kustomization
 resources:
 - deployment.yaml
 
+configMapGenerator:
+- behavior: create
+  envs:
+  - environment-properties.env
+  name: switcher-api-generated
+
 images:
 - name: trackerforce/switcher-api:latest
   digest: sha256:e3ae412f01c3bd0cec9e30d02ff47d534f29a3aa14ff9ca5713a578b55323098
