@@ -5,11 +5,12 @@ resources:
 - deployment.yaml
 
 configMapGenerator:
-- name: switcher-api-generated
-  envs: [environment-properties.env]
-  behavior: create
+- behavior: create
+  envs:
+  - environment-properties.env
+  name: switcher-api-generated
 
 images:
-- digest: sha256:e4bec52247af6fb2ae40bb3dd33b7e15fe43918f766ef53d5b5ab4932f31d2b5
-  name: trackerforce/switcher-api-dev:latest
+- name: trackerforce/switcher-api-dev:latest
   newName: trackerforce/switcher-api-dev
+  newTag: latest
