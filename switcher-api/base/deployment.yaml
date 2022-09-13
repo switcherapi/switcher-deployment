@@ -4,6 +4,7 @@ metadata:
   name: switcher-api
 spec:
   replicas: 1
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app: switcher-api
@@ -150,6 +151,11 @@ spec:
               secretKeyRef:
                 name: switcher-api
                 key: SENDGRID_API_KEY
+          - name: SWITCHER_SLACK_JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: switcher-api
+                key: SWITCHER_SLACK_JWT_SECRET
 
           # Switcher API Client
           - name: SWITCHER_API_ENABLE
