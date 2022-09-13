@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: switcher-ac
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: switcherapi.com
+    http:
+      paths:
+      - path: /ac(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: switcher-ac
+            port:
+              number: 8070

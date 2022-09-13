@@ -4,6 +4,7 @@ metadata:
   name: switcher-ac
 spec:
   replicas: 1
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app: switcher-ac

@@ -3,6 +3,8 @@ kind: Kustomization
 
 resources:
 - deployment.yaml
+- ingress.yaml
+- service.yaml
 
 images:
 - digest: sha256:4d2d4465370b659ca73ad397b3b14a1a997b0eb832eef15a09db013f3b442403

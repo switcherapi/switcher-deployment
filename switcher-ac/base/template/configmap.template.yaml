@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: switcher-ac
+  labels:
+    app: switcher-ac
+data:
+  SPRING_PROFILES_ACTIVE: prod
+  GITHUB_CLIENTID: GITHUB_CLIENTID
+
+  # Switcher API
+  SWITCHER_URL: http://switcher-api:3000
+  SWITCHER_ENV: default
+  SWITCHER_DOMAIN: DOMAIN
+  SWITCHER_SNAPSHOT_LOCATION: "./snapshots"
+  SWITCHER_SNAPSHOT_AUTO: "false"
+  SWITCHER_OFFLINE: "false"
+  SWITCHER_SILENT: "true"
