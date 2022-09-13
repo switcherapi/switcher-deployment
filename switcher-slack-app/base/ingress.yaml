@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: switcher-slack-app
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: slack.switcherapi.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: switcher-slack-app
+            port:
+              number: 5000

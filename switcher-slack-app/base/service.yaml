@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: switcher-slack-app
+  labels:
+    app: switcher-slack-app
+spec:
+  selector:
+    app: switcher-slack-app
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
