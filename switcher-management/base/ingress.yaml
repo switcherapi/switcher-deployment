@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: switcher-management
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: cloud.switcherapi.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: switcher-management
+            port:
+              number: 80

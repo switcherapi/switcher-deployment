@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: switcher-management
+  labels:
+    app: switcher-management
+data:
+  SWITCHERAPI_URL: https://switcherapi.com/api
+  SM_IP: https://cloud.switcherapi.com
+  GOOGLE_RECAPTCHA: GOOGLE_RECAPTCHA
+  GITHUB_CLIENTID: GITHUB_CLIENTID
+  BITBUCKET_CLIENTID: BITBUCKET_CLIENTID
+  SWITCHERSLACKAPP_URL: https://slack.switcherapi.com/slack/install
