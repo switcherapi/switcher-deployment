@@ -28,36 +28,8 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
-          env:
-          - name: SLACK_CLIENT_ID
-            valueFrom:
-              configMapKeyRef:
+          envFrom:
+            - configMapRef:
                 name: switcher-slack-app
-                key: SLACK_CLIENT_ID
-          - name: SWITCHER_URL
-            valueFrom:
-              configMapKeyRef:
+            - secretRef:
                 name: switcher-slack-app
-                key: SWITCHER_URL
-          - name: SWITCHER_API_URL
-            valueFrom:
-              configMapKeyRef:
-                name: switcher-slack-app
-                key: SWITCHER_API_URL
-
-          # Secrets
-          - name: SLACK_SIGNING_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: switcher-slack-app
-                key: SLACK_SIGNING_SECRET
-          - name: SLACK_CLIENT_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: switcher-slack-app
-                key: SLACK_CLIENT_SECRET
-          - name: SWITCHER_JWT_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: switcher-slack-app
-                key: SWITCHER_JWT_SECRET
