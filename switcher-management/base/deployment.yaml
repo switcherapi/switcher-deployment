@@ -28,39 +28,6 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
-          env:
-          - name: RELEASE_TIME
-            valueFrom:
-              configMapKeyRef:
-                name: switcher-management-generated
-                key: RELEASE_TIME
-          - name: SWITCHERAPI_URL
-            valueFrom:
-              configMapKeyRef:
+          envFrom:
+            - configMapRef:
                 name: switcher-management
-                key: SWITCHERAPI_URL
-          - name: SM_IP
-            valueFrom:
-              configMapKeyRef:
-                name: switcher-management
-                key: SM_IP
-          - name: GOOGLE_RECAPTCHA
-            valueFrom:
-              configMapKeyRef:
-                name: switcher-management
-                key: GOOGLE_RECAPTCHA
-          - name: GITHUB_CLIENTID
-            valueFrom:
-              configMapKeyRef:
-                name: switcher-management
-                key: GITHUB_CLIENTID
-          - name: BITBUCKET_CLIENTID
-            valueFrom:
-              configMapKeyRef:
-                name: switcher-management
-                key: BITBUCKET_CLIENTID
-          - name: SWITCHERSLACKAPP_URL
-            valueFrom:
-              configMapKeyRef:
-                name: switcher-management
-                key: SWITCHERSLACKAPP_URL
