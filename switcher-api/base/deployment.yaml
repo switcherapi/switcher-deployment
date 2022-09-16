@@ -22,7 +22,6 @@ spec:
                 operator: In
                 values:
                 - worker-0
-      dnsPolicy: Default
       containers:
         - name: switcher-api
           image: trackerforce/switcher-api:latest

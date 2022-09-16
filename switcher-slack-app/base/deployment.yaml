@@ -13,7 +13,6 @@ spec:
       labels:
         app: switcher-slack-app
     spec:
-      dnsPolicy: Default
       containers:
         - name: switcher-slack-app
           image: trackerforce/switcher-slack-app:latest

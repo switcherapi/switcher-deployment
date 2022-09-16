@@ -13,7 +13,6 @@ spec:
       labels:
         app: switcher-management
     spec:
-      dnsPolicy: Default
       containers:
         - name: switcher-management
           image: trackerforce/switcher-management:latest
