@@ -27,6 +27,12 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
+          env:
+          - name: RELEASE_TIME
+            valueFrom:
+              configMapKeyRef:
+                name: switcher-management-generated
+                key: RELEASE_TIME
           envFrom:
             - configMapRef:
                 name: switcher-management
