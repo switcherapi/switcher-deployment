@@ -7,10 +7,9 @@ resources:
 - service.yaml
 
 configMapGenerator:
-- behavior: replace
+- name: switcher-api-generated
   envs:
   - environment-properties.env
-  name: switcher-api-generated
 
 images:
 - digest: sha256:ffa32d423891186440505021570021a91124dd5ff602ecc13b0f92f0008539df
