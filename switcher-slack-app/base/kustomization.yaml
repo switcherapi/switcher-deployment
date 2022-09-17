@@ -7,6 +7,6 @@ resources:
 - service.yaml
 
 images:
-- digest: sha256:92444339ddf472519a5b4ecf4fb001f7b5332bc6116b78f158f472eea17b3e35
+- digest: sha256:ec818dadf231fcb67b4c4c2452234694720db3521d98411ab0e527dd7b88a4c1
   name: trackerforce/switcher-slack-app:latest
   newName: trackerforce/switcher-slack-app
