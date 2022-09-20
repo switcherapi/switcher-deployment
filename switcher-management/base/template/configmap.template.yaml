@@ -5,9 +5,23 @@ metadata:
   labels:
     app: switcher-management
 data:
+  # Switcher API endpoint (required)
   SWITCHERAPI_URL: https://switcherapi.com/api
+
+  # Switcher Management endpoint for callback (required)
   SM_IP: https://cloud.switcherapi.com
+
+  # Google ReCaptcha (optional)
   GOOGLE_RECAPTCHA: GOOGLE_RECAPTCHA
+
+  # SingUp/In using Email (default: true)
+  ALLOW_INTERNAL_AUTH: 'false'
+
+  # Enable Auth using GitHub
   GITHUB_CLIENTID: GITHUB_CLIENTID
+
+  # Enable Auth using Bitbucket
   BITBUCKET_CLIENTID: BITBUCKET_CLIENTID
+
+  # Slack App Integration (optional)
   SWITCHERSLACKAPP_URL: https://slack.switcherapi.com/slack/install
