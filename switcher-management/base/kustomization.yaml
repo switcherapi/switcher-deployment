@@ -12,6 +12,6 @@ configMapGenerator:
   name: switcher-management-generated
 
 images:
-- digest: sha256:4a6705efecafdb2100a5161288b12cae7edf91fca27b115f9842d26438f98210
+- digest: sha256:98755782f95334cd6cf1389998ec1d26b98d9e10ee17ca387a318058c9f71b11
   name: trackerforce/switcher-management:latest
   newName: trackerforce/switcher-management
