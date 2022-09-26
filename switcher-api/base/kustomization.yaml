@@ -7,11 +7,11 @@ resources:
 - service.yaml
 
 configMapGenerator:
-- name: switcher-api-generated
-  envs:
+- envs:
   - environment-properties.env
+  name: switcher-api-generated
 
 images:
-- digest: sha256:ffa32d423891186440505021570021a91124dd5ff602ecc13b0f92f0008539df
+- digest: sha256:d3c7d753c2df05296a7a9bf52e446865768c4a7bf970c4a68b1f9c982ddc15e7
   name: trackerforce/switcher-api:latest
   newName: trackerforce/switcher-api
