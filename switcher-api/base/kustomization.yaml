@@ -12,6 +12,6 @@ configMapGenerator:
   name: switcher-api-generated
 
 images:
-- digest: sha256:d3c7d753c2df05296a7a9bf52e446865768c4a7bf970c4a68b1f9c982ddc15e7
+- digest: sha256:82608bfb28d48f8cb3128bbce5b3f92700784c42a1fee53457912eddf7eed564
   name: trackerforce/switcher-api:latest
   newName: trackerforce/switcher-api
