@@ -7,6 +7,6 @@ resources:
 - service.yaml
 
 images:
-- digest: sha256:cb45ecaaa1d56c308db68934d2903ffd2f75b0c1f31203ae11ebb1807e779343
+- digest: sha256:b8005fd9d302e63f51411dd93fc9dbc1b55a986358740616cf081ffa29c528c7
   name: trackerforce/switcher-ac:latest
   newName: trackerforce/switcher-ac
